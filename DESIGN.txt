@@ -1,0 +1,14 @@
+adjacent()
+- Although this could have stayed in Functions.java, I moved it to Point.java because both its parameters are Point objects. I kept it static.
+
+distanceSquared()
+- Again, this could have stayed in Functions.java, but I moved it to Point.java because its purpose is to find the squared distance between two Point objects. I kept this static as well.
+
+getCurrentImage()
+- I split this function up into two instance methods, one in Background.java and one in Entity.java, to satisfy each of the conditions in the if-else-if clause of the original function in Functions.java.
+
+processImageLine()
+- I wanted to move this function to ImageStore.java, however decided to keep it in Functions.java because it used private static final int constants that were defined at the top of Functions.java.
+
+getImages()
+- Although this function deals with images and I was tempted to move it to ImageStore.java, I kept it in Functions.java because it could not have been converted to an instance method in ImageStore.java, which already had a getter for the images variable.

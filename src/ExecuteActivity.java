@@ -1,0 +1,35 @@
+
+import processing.core.PImage;
+import java.util.List;
+
+public abstract class ExecuteActivity extends Animated {
+
+    private int actionPeriod;
+
+    public ExecuteActivity(String id,
+                           Point position,
+                           List<PImage> images,
+                           int animationPeriod,
+                           int actionPeriod) {
+        super(id, position, images, animationPeriod);
+        this.actionPeriod = actionPeriod;
+    }
+
+    protected int getActionPeriod() { return actionPeriod; }
+
+    protected abstract void executeActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler);
+
+    public void scheduleActions(
+            EventScheduler scheduler,
+            WorldModel world,
+            ImageStore imageStore)
+    {
+        scheduler.scheduleEvent(this,
+                Factory.createActivityAction(this, world, imageStore),
+                actionPeriod);
+        scheduler.scheduleEvent(this,
+                Factory.createAnimationAction(this, 0),
+                this.getAnimationPeriod());
+    }
+}
+
