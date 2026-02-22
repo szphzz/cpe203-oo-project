@@ -1,5 +1,5 @@
-Virtual World Project
-CSC 203, Spring '22
+# CSC 203 Project-Based Object-Oriented Programming and Design
+## Virtual World Project
 
 Simulation Rules:
 
@@ -31,4 +31,5 @@ There are 8 entities, which act according to the following rules:
 8. TREE
     * animates and has health
     * if it's health is depleted it with transform into a STUMP entity.
+
 
